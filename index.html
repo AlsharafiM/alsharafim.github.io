@@ -7,1260 +7,935 @@
     <link rel="icon" type="image/png" sizes="48x48" href="logo.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>       محمد الشرفي | Mohammed Al-Sharafi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
-
-    <!-- Canonical link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
-    <style>
-        /* تنسيقات عامة */
-        body {
-  font-family: "Cairo", sans-serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-variation-settings: "slnt" 0;
-            justify-content: center;
-            background: url('bak1.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background-color: #eaeff7;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        h3 {
-            color: #333;
-        }
-
-        .card-text {
-            display: flex;
-            flex-direction: column;
-            text-align: justify;
-            line-height: 1.6;
-        }
-
-        .card-text .ar,
-        .card-text .en {
-            display: block;
-        }
-
-        i {
-            margin: 5px;
-        }
-
-        /* تنسيقات عناصر القائمة */
-        .navbar {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        nav {
-            background-color: #183153;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            border: #0eb2e4 2px solid;
-        }
-
-        .navbar-nav {
-            padding-right: 0;
-        }
-
-        .navbar-nav .nav-link {
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
-            color: rgba(255, 255, 255, 255);
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: rgb(255, 0, 191);
-            font-size: 15px;
-        }
-
-        .navbar.transparent {
-            background-color: rgba(185, 224, 231, 0.445);
-        }
-
-        .navbar.transparent .nav-link,
-        .navbar.transparent .navbar-brand {
-            color: black;
-        }
-
-        .nav-tabs {
-            flex-wrap: nowrap;
-        }
-
-        .nav-tabs .nav-item {
-            float: none;
-            display: inline-block;
-        }
-
-        .nav-tabs .nav-link {
-            color: #0656ac;
-            background-color: transparent;
-            border-left: #34B7F1 solid 1px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-tabs .nav-link:hover {
-            border-color: #ba0af0;
-        }
-
-        .nav-tabs .nav-link.active {
-            color: #0656ac;
-            border-left: #04779b solid 2px;
-            border-right: #04779b solid 2px;
-            border-top: #04779b solid 2px;
-        }
-
-        .tab-icon {
-            margin-right: 5px;
-        }
-
-        .scrollable-tabs {
-            overflow-x: auto;
-            white-space: nowrap;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .scrollable-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollable-tabs .nav-tabs {
-            flex-wrap: nowrap;
-        }
-
-        .scrollable-tabs .nav-item {
-            display: inline-block;
-            float: none;
-        }
-
-        /* تنسيقات زر العرض */
-        .btn-showcase {
-            border-radius: 32px;
-            max-width: 300px;
-            border-color: #68d9f58b;
-            border-width: 2px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            box-shadow: inset 0 -7px 11px rgba(20, 189, 219, 0.136);
-            -webkit-box-shadow: inset 0 -7px 11px rgba(11, 238, 227, 0.136);
-            transition: box-shadow .45s cubic-bezier(.6, .6, 0, 1);
-            -webkit-transition: box-shadow .45s cubic-bezier(.6, .6, 0, 1);
-        }
-
-        .btn-showcase a i {
-            font-size: 20px;
-        }
-
-        .btn-showcase:hover {
-            box-shadow: inset 0 -7px 11px rgba(141, 53, 229, .536);
-        }
-
-        /* تنسيقات الشارات */
-        .badge-button {
-            margin-bottom: 15px;
-        }
-
-        /* تنسيقات البطاقات */
-        .card-body {
-            padding: 25px;
-        }
-
-        .carousel-item {
-            height: 100%;
-        }
-
-        /* تنسيقات المشروع */
-        .projects-title {
-            position: relative;
-            display: block;
-
-            padding: 10px 20px;
-            color: #ffffff;
-            background: linear-gradient(45deg, #2193b0, #6dd5ed);
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .projects-title i {
-            margin-right: 10px;
-            color: #ffffff;
-        }
-
-        .projects-title:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card {
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .project-image:hover {
-            transform: scale(1.05);
-        }
-
-        /* تنسيقات القسم */
-        .section {
-            padding: 60px 0;
-        }
-
-        /* تنسيقات الأيقونات الاجتماعية */
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* تنسيقات عناصر الحب */
-        .love {
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .love:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 20px;
-            background: linear-gradient(45deg, #f06, #f79);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
-        }
-
-        .love p {
-            color: #666;
-        }
-
-        /* تنسيقات عناصر أخرى */
-        .Abilities i {
-            color: #0656ac;
-        }
-
-        .Exps i {
-            color: #0656ac;
-        }
-
-        /* تنسيقات وسائل الإعلام */
-        @media (max-width: 767.98px) {
-            .order-md-2 {
-                order: -1;
-            }
-
-            .nav-tabs .nav-link {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.9rem;
-            }
-
-            .float-buttons {
-                bottom: 10px;
-                right: 10px;
-            }
-
-            .float-button {
-                width: 40px;
-                height: 40px;
-                font-size: 0.8em;
-            }
-
-            footer .social-icons {
-                margin-top: 10px;
-            }
-
-            .scrollable-tabs .nav-link {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-                color: rgb(7, 0, 0);
-            }
-
-            .scrollable-tabs {
-                background-color: #e6e5e593;
-            }
-
-            .scrollable-tabs .nav-link {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-                color: rgb(7, 0, 0);
-            }
-
-            .scrollable-tabs {
-                background-color: #e6e5e593;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card-img-top {
-                height: 200px;
-            }
-        }
-
-        .scrollable-tabs {
-            overflow-x: auto;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .scrollable-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollable-tabs .nav-tabs {
-            flex-wrap: nowrap;
-        }
-
-        .scrollable-tabs .nav-item {
-            display: inline-block;
-            float: none;
-        }
-
-        i {
-            margin: 5px;
-        }
-
-        footer {
-            margin-top: 10px;
-            border: #0eb2e4 2px solid;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            background-color: #183153;
-        }
-
-        /* تنسيقات أزرار التعويم */
-        .float-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .float-button {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .float-button:hover {
-            transform: scale(1.1);
-        }
-
-        .float-button-whatsapp {
-            background-color: #25D366;
-        }
-
-        .float-button-phone {
-            background-color: #34B7F1;
-        }
-
-        .float-button-top {
-            background-color: #6c757d;
-        }
-
-        .float-button-main {
-            display: flex;
-        }
-
-        /* رسوم متحركة */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        /*  */
-        .fa-html5 {
-            color: #E34F26;
-        }
-
-        .fa-css3-alt {
-            color: #1572B6;
-        }
-
-        .fa-js-square {
-            color: #F7DF1E;
-        }
-
-        .fa-jquery {
-            color: #0769AD;
-        }
-
-        .fa-bootstrap {
-            color: #7952B3;
-        }
-
-        .fa-font-awesome {
-            color: #339AF0;
-        }
-
-        .fa-php {
-            color: #777BB4;
-        }
-
-        /*  */
-        .icon-style {
-       
-        padding: 3px;
-        width: 25px;  /* ضبط العرض حسب حجم الأيقونة */
-        height: 25px;  /* ضبط الارتفاع حسب حجم الأيقونة */
-        display: inline-block;
-        vertical-align: middle;
-    }
+    <title> محمد الشرفي | Mohammed Al-Sharafi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <link rel="stylesheet" href="index.css">
+    <!-- استدعاء خطوط Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
    
-    </style>
+    /* للعربية */
+    html[lang="ar"] body {
+      font-family: "Tajawal", sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* للإنجليزية */
+    html[lang="en"] body {
+      font-family: "Poppins", sans-serif;
+      direction: ltr;
+      text-align: left;
+    }
+    .divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.divider .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #3E66A0, #6BA8E5);
+  position: relative;
+  animation: growLine 1.2s ease;
+}
+
+.divider .dot {
+  width: 14px;
+  height: 14px;
+  background: #3E66A0;
+  border-radius: 50%;
+  margin: 0 15px;
+  box-shadow: 0 0 8px rgba(62, 102, 160, 0.6);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes growLine {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+.icon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #06c7e9;
+}
+
+.icon-divider i {
+  font-size: 24px;
+  color: #790cdf;
+  padding: 0 15px;
+}
+  </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand ar" href="#">محمد الشرفي</a>
-            <a class="navbar-brand en" href="#" style="display: none;">Mohammed Al-Sharafi</a>
-            <button class="navbar-toggler" style="border: #0eb2e4 2px dotted;" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link ar" href="#about">نبذة عني</a>
-                        <a class="nav-link en" href="#about" style="display: none;">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ar" href="#Qesal">الخبرات</a>
-                        <a class="nav-link en" href="#Qesal" style="display: none;">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ar" href="#Qesal">التعليم</a>
-                        <a class="nav-link en" href="#Qesal" style="display: none;">Qualifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ar" href="#Qesal">المهارات</a>
-                        <a class="nav-link en" href="#Qesal" style="display: none;">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ar" href="#projects">الاعمال </a>
-                        <a class="nav-link en" href="#projects" style="display: none;">Projects</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
 
-                    <button onclick="toggleLanguage()" class="btn btn-outline-light">
-                        <span class="ar text">EN</span>
-                        <i style="color:blue" class="fa-solid fa-globe"></i>
-                        <span class="en" style="display: none;">عربي</span>
-                    </button>
+    <div class="fixed-topbars">
+        <div class="topbar  py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <!-- أيقونات التواصل -->
+                <div class="social-icons d-flex align-items-center gap-3">
+                    <a href="#" class="text-primary"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-success"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:example@email.com" class="text-warning"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/username" target="_blank" class="text-dark"><i
+                            class="fab fa-github"></i></a>
+
+                    <a href="https://www.linkedin.com/in/your-profile-url" target="_blank" class="text-primary"><i
+                            class="fab fa-linkedin-in"></i></a>
+
+                    <a href="tel:+1234567890" class="text-secondary"><i class="fas fa-phone"></i></a>
                 </div>
+
+                <!-- زر تغيير اللغة -->
+                <div class="lang-switcher">
+                    <a href="#" onclick="toggleLanguage()" class="fw-bold text-primary">
+                        <span class="ar">EN</span>
+                        <span class="en" style="display: none;">عربي</span>
+                    </a>
+                </div>
+
             </div>
         </div>
-    </nav>
 
-    <main class="container mt-5">
 
-        <div class="container rounded" style=" padding: 30px; box-shadow: #9ee6fc 2px 2px 2px 5px; " id="about">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid justify-content-center">
+                <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNav">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link ar" href="#about">نبذة عني</a>
+                            <a class="nav-link en" href="#about" style="display: none;">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ar" href="#Qesal">الخبرات</a>
+                            <a class="nav-link en" href="#Qesal" style="display: none;">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ar" href="#Qesal">التعليم</a>
+                            <a class="nav-link en" href="#Qesal" style="display: none;">Qualifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ar" href="#Qesal">المهارات</a>
+                            <a class="nav-link en" href="#Qesal" style="display: none;">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ar" href="#projects">الأعمال</a>
+                            <a class="nav-link en" href="#projects" style="display: none;">Projects</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="offcanvas offcanvas-end" id="offcanvasNav">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white">القائمة</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link ar" href="#about" data-bs-dismiss="offcanvas">نبذة عني</a>
+                    <a class="nav-link en" href="#about" style="display: none;" data-bs-dismiss="offcanvas">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ar" href="#Qesal" data-bs-dismiss="offcanvas">الخبرات</a>
+                    <a class="nav-link en" href="#Qesal" style="display: none;"
+                        data-bs-dismiss="offcanvas">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ar" href="#Qesal" data-bs-dismiss="offcanvas">التعليم</a>
+                    <a class="nav-link en" href="#Qesal" style="display: none;"
+                        data-bs-dismiss="offcanvas">Qualifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ar" href="#Qesal" data-bs-dismiss="offcanvas">المهارات</a>
+                    <a class="nav-link en" href="#Qesal" style="display: none;" data-bs-dismiss="offcanvas">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ar" href="#projects" data-bs-dismiss="offcanvas">الأعمال</a>
+                    <a class="nav-link en" href="#projects" style="display: none;"
+                        data-bs-dismiss="offcanvas">Projects</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+    <br><br><br>
+    
+    <main class="container bg-white mt-5 rounded">
+
+        <div class="container rounded" style=" padding: 30px;" id="about">
+            
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-3">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-3">
-                                <img style="max-height: 400px; " src="profile.jpg"
-                                    class="img-fluid rounded-start h-100 w-100" alt="Mohammed Al-Sharfi"
-                                    style="object-fit: cover;">
-
-                            </div>
-
-                            <div class="col-md-9">
-
-                                <div class="card-body h-100 d-flex flex-column">
-                                    <h5 class="card-title">
-                                        <span class="ar"> عَنِّي </span>
-
-                                        <span class="en" style="display: none;">About_Me</span>
-
-                                    </h5>
-                                    <div class="row">
-                                        <div class="col-md-4 mt-3 mb-3 p-1 btn-showcase">
-                                            <i class="fas fa-laptop-code"></i>
-                                            <span class="ar">مصمم واجهات أمامية ومبرمج </span>
-                                            <span class="en" style="display: none;">Frontend and Backend Developer
-                                            </span>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4 text-center social-icons mt-3 mb-3 btn-showcase">
-                                            <a href="https://www.facebook.com/profile.php?id=61553623959789"
-                                                class="text-primary me-3" aria-label="Facebook"><i
-                                                    class="fab fa-facebook-f"></i></a>
-                                            <a href="https://x.com/Alsharafiqaz?t=CHoZmTM2E_VvVtoF2Fz8zA&s=09"
-                                                class="text-info me-3" aria-label="Twitter"><i class="fab fa-x"></i></a>
-                                            <a href="https://t.me/MA_YMN" class="text-info me-3"
-                                                aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-
-                                            <a href="#" class="text-primary" aria-label="LinkedIn"><i
-                                                    class="fab fa-linkedin-in"></i></a>
-                                        </div>
-                                    </div>
 
 
-                                    <hr>
 
-                                    <p class="card-text flex-grow-1">
-                                        <br>
-                                        <span class="ar">أنا محمد الشرفي،  مبرمج حر من اليمن ولدي شغف كبير
-                                            بتطوير الويب. أعمل حاليًا كمطور ويب للواجهة الأمامية مع مشاريع تصميم وبرمجة
-                                            الويب بدوام جزئي. بدأت رحلتي بعد حصولي على درجة البكالوريوس في علوم الحاسب
-                                            الآلي ودبلوم تصميم وبرمجة المواقع الإلكترونية من المعهد العام للاتصالات
-                                            بصنعاء. ومنذ ذلك الحين قمت بتوسيع خبرتي في تصميم وبرمجة مواقع الويب.
+                        <div class="card-body h-100 d-flex flex-column">
+                            <h5 class="card-title">
+                                <span class="ar"> عَنِّي </span>
 
-                                            هدفي الأساسي في مجال التصميم والبرمجة هو إنتاج مواقع ويب جذابة بصريًا،
-                                            ودقيقة من الناحية الوظيفية، ولها تعليمات برمجية منظمة. سواء كان الأمر يتضمن
-                                            تصميمًا دقيقًا لتصميمات أنيقة وسريعة الاستجابة أو تخصيص مواقع الويب بخبرة،
-                                            فأنا دائمًا منغمس في استكشاف الأفكار المبتكرة لإضفاء الحيوية على الإبداعات
-                                            الاستثنائية.
-                                        </span>
-                                        <span class="en" style="display: none;">
-                                            I am Muhammad Al-Sharafi, a freelance programmer from
-                                            Yemen with a great passion for web development. Currently, I journey as a
-                                            front-end web developer with part-time web design and programming projects.
-                                            My journey began after obtaining a bachelor’s degree in computer science and
-                                            a diploma in website design and programming from the General Institute of
-                                            Communications in Sana’a. Since then I have expanded my experience in
-                                            website design and programming.
+                                <span class="en" style="display: none;">About_Me</span>
 
-                                            My primary goal in the field of design and programming is to produce
-                                            websites that are visually attractive, accurately functionally sound, and
-                                            have organized code. Whether it involves meticulously designing elegant,
-                                            responsive designs or expertly customizing websites, I am always immersed in
-                                            exploring innovative ideas to bring exceptional creations to life
-                                        </span>
+                            </h5>
 
-                                    </p>
-                                    <hr>
-                                    <div class="row contact_info">
-                                        <div class="col-md-2" style="border-left: #0656ac 2px solid ;">
-                                            <img src="contact-us.png" class="icon-style" alt="Email Icon">
-                                            <span class="ar"> للتواصل : </span>
-                                            <span class="en" style="display: none;">To Contact </span>
-                                        </div>
-                                        <div class="col-md-5" style="border-left: #0656ac 2px solid ;">
-                                            <img src="gmail.png" class="icon-style" alt="Email Icon">
-                                          <span class="ar">
-                                                البريد الإلكتروني:
-                                                <a class="text-info" href="mailto:alsharafimaw@gmail.com">alsharafimaw@gmail.com</a>
-                                            </span>
-                                            <span class="en" style="display: none;">
-                                                Email:
-                                                <a class="text-info" href="mailto:alsharafimaw@gmail.com">alsharafimaw@gmail.com</a>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <img src="phone.png" class="icon-style" alt="Email Icon">
-                                            <span class="ar">
-                                                رقم الهاتف:
-                                                <a href="tel:+967781010064">+967781010064</a>
-                                            </span>
-                                            <span class="en" style="display: none;">
-                                                Phone:
-                                                <a href="tel:+967781010064">+967781010064</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    
+
+
+                          <div class="icon-divider">
+  <span class="divider-line"></span>
+  <i class="fa fa-star"></i>
+  <span class="divider-line"></span>
+</div>
+
+                            <p class="card-text flex-grow-1">
+                                
+                                <span class="ar">
+                                    مطور ويب محترف يتميز بقدرة عالية على تنظيم الأكواد وابتكار حلول برمجية حديثة. سريع
+                                    التعلّم ومواكب للتقنيات والأدوات الجديدة في مجال تطوير الويب. أبرمج مواقع إلكترونية
+                                    متجاوبة ومتوافقة مع جميع الأجهزة، مع الحرص على الأداء والجودة. أتمتع بمرونة عالية
+                                    للعمل ضمن فريق أو بشكل مستقل، ملتزم بالمواعيد النهائية، وقادر على العمل لساعات طويلة
+                                    لتحقيق أفضل النتائج. </span>
+                                <span class="en" style="display: none;">
+                                    A professional web developer with strong expertise in writing clean, well-structured
+                                    code and delivering modern software solutions. Fast learner and always up to date
+                                    with the latest web technologies and tools. Skilled in building fully responsive
+                                    websites optimized for performance and quality. Highly adaptable to working both
+                                    independently and within a team, committed to meeting deadlines, and capable of
+                                    working long hours to achieve the best results.
+                                </span>
+
+                            </p>
+                            <hr>
+                            <div class="row contact_info">
+                                <div class="col-md-2" style="border-left: #0656ac 2px solid ;">
+                                    <img src="contact-us.png" class="icon-style" alt="Email Icon">
+                                    <span class="ar"> للتواصل : </span>
+                                    <span class="en" style="display: none;">To Contact </span>
                                 </div>
-
+                                <div class="col-md-5" style="border-left: #0656ac 2px solid ;">
+                                    <img src="gmail.png" class="icon-style" alt="Email Icon">
+                                    <span class="ar">
+                                        البريد الإلكتروني:
+                                        <a class="text-info"
+                                            href="mailto:alsharafimaw@gmail.com">alsharafimaw@gmail.com</a>
+                                    </span>
+                                    <span class="en" style="display: none;">
+                                        Email:
+                                        <a class="text-info"
+                                            href="mailto:alsharafimaw@gmail.com">alsharafimaw@gmail.com</a>
+                                    </span>
+                                </div>
+                                <div class="col-md-5">
+                                    <img src="phone.png" class="icon-style" alt="Email Icon">
+                                    <span class="ar">
+                                        رقم الهاتف:
+                                        <a href="tel:+967781010064">+967781010064</a>
+                                    </span>
+                                    <span class="en" style="display: none;">
+                                        Phone:
+                                        <a href="tel:+967781010064">+967781010064</a>
+                                    </span>
+                                </div>
                             </div>
+
                         </div>
+
+
+
+
                     </div>
                 </div>
+
+
+
             </div>
+<div class="divider">
+  <span class="line"></span>
+  <span class="dot"></span>
+  <span class="line"></span>
+</div>
 
-            <br>
+            <div class="container rounded" id="Qesal">
+                <!-- Horizontal Card for Qualifications, Experience, and Skills -->
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="tabs-container scrollable-tabs">
+                                    <ul class="nav nav-tabs justify-content-center flex-nowrap" id="myTab"
+                                        role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="skills-tab" data-bs-toggle="tab"
+                                                data-bs-target="#skills" type="button" role="tab" aria-controls="skills"
+                                                aria-selected="false">
+                                                <i class="bi bi-code-square text-success"></i>
+                                                <span class="ar">المهارات التقنية</span>
+                                                <span class="en" style="display: none;">Technical Skills</span>
+                                            </button>
+                                        </li>
 
-            <h3 class="projects-title text-center mb-4 animate__animated animate__fadeInDown">
-                <i class="bi bi-heart-fill" style="color: #0056b3;"></i>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="experience-tab" data-bs-toggle="tab"
+                                                data-bs-target="#experience" type="button" role="tab"
+                                                aria-controls="experience" aria-selected="false">
+                                                <i class="bi bi-briefcase text-success"></i>
+                                                <span class="ar"> الخبرات</span>
 
-                <span class="ar">أشياء أحبها</span>
-                <span class="en" style="display: none;">Things I Love</span>
-            </h3>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card  love p-4">
-                        <div class="icon">
-                            <i class="bi bi-droplet-half"></i>
-                        </div>
-                        <h4>
-                            <span class="ar">تصميم</span>
-                            <span class="en" style="display: none;">Design</span>
-                        </h4>
-                        <p style=" display: flex;flex-direction: column;text-align: justify;line-height: 1.5;">
-                            <span class="ar">أحب التصميم. عندما أرى شيئاً يحتاج إلى تحسين، أستمتع بتحسينه بصرياً. أهتم
-                                بكل
-                                التفاصيل سواء كانت رسوماً بيانية أو واجهة مستخدم. هدفي هو إنشاء تصميمات تجذب الانتباه
-                                وتلهم
-                                الآخرين.</span>
-                            <span class="en" style="display: none;">I love design. When I see something that needs
-                                improvement, I enjoy enhancing it visually. I care about every detail, whether it's
-                                graphics
-                                or user interface. My goal is to create designs that attract attention and inspire
-                                others.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card  love p-4">
-                        <div class="icon">
-                            <i class="bi bi-code-slash"></i>
-                        </div>
-                        <h4>
-                            <span class="ar">البرمجة</span>
-                            <span class="en" style="display: none;">Development</span>
-                        </h4>
-                        <p style=" display: flex;flex-direction: column;text-align: justify;line-height: 1.5;">
-                            <span class="ar">بعد التصميم، أبدأ في التطوير. حيث أجعل التصميمات تنبض بالحياة من خلال
-                                البرمجة،
-                                وتحويل المفاهيم إلى تجارب رقمية. يعكس كل سطر من التعليمات البرمجية رؤيتي للأناقة
-                                والإتقان،
-                                مما يُظهر التزامي بالتميز.</span>
-                            <span class="en" style="display: none;">After design, I start developing. I bring designs to
-                                life through coding, turning concepts into digital experiences. Every line of code
-                                reflects
-                                my vision for elegance and perfection, showing my commitment to excellence.</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card  love p-4">
-                        <div class="icon">
-                            <i class="bi bi-cup-straw"></i>
-                        </div>
-                        <h4>
-                            <span class="ar">التوسع</span>
-                            <span class="en" style="display: none;">Expansion</span>
-                        </h4>
-                        <p style=" display: flex;flex-direction: column;text-align: justify;line-height: 1.5;">
-                            <span class="ar">أتوسع إلى ما هو أبعد من الإبداع، فأقوم بالتحسين، من القوالب إلى مواقع الويب
-                                الكاملة. أقوم بتحسين مرحلة ما بعد التطوير، من خلال الاستفادة من التدوين وتحسين محركات
-                                البحث
-                                الأساسية. أقوم بتعزيز الرؤية والتأثير عبر الإنترنت، كل خطوة تزيد من الوصول والفعالية عبر
-                                الإنترنت.</span>
-                            <span class="en" style="display: none;">I expand beyond creativity, improving everything
-                                from
-                                templates to complete websites. I optimize the post-development phase by leveraging
-                                blogging
-                                and core SEO practices. I enhance visibility and impact online, each step increasing
-                                reach
-                                and effectiveness.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+                                                <span class="en" style="display: none;">Experience</span>
 
-        </div>
+                                            </button>
+                                        </li>
 
-        <div class="container mt-5 rounded" id="Qesal" style="box-shadow: #9ee6fc 2px 2px 2px 5px;" >
-            <!-- Horizontal Card for Qualifications, Experience, and Skills -->
-            <div class="card mb-5">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tabs-container scrollable-tabs">
-                                <ul class="nav nav-tabs justify-content-center flex-nowrap" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="Qualifications-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Qualifications" type="button" role="tab"
-                                            aria-controls="Qualifications" aria-selected="true">
-                                            <i class="bi bi-mortarboard text-success"></i>
-                                            <span class="ar"> المؤهلات</span>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="Abilities-tab" data-bs-toggle="tab"
+                                                data-bs-target="#Abilities" type="button" role="tab"
+                                                aria-controls="Abilities" aria-selected="false">
+                                                <i class="bi bi-lightning-charge text-success"></i>
+                                                <span class="ar">القدرات</span>
+                                                <span class="en" style="display: none;">Abilities</span>
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="Qualifications-tab" data-bs-toggle="tab"
+                                                data-bs-target="#Qualifications" type="button" role="tab"
+                                                aria-controls="Qualifications" aria-selected="true">
+                                                <i class="bi bi-mortarboard text-success"></i>
+                                                <span class="ar"> المؤهلات</span>
 
-                                            <span class="en" style="display: none;">Qualifications</span>
+                                                <span class="en" style="display: none;">Qualifications</span>
 
-                                        </button>
-                                    </li>
-                                    <li class="nav-item"  role="presentation">
-                                        <button class="nav-link" id="experience-tab" data-bs-toggle="tab"
-                                            data-bs-target="#experience" type="button" role="tab"
-                                            aria-controls="experience" aria-selected="false">
-                                            <i class="bi bi-briefcase text-success"></i>
-                                            <span class="ar"> الخبرات</span>
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="Languages-tab" data-bs-toggle="tab"
+                                                data-bs-target="#Languages" type="button" role="tab"
+                                                aria-controls="Languages" aria-selected="false">
+                                                <i class="bi bi-translate text-success"></i>
+                                                <span class="ar">اللغات</span>
+                                                <span class="en" style="display: none;">Languages</span>
+                                            </button>
+                                        </li>
 
-                                            <span class="en" style="display: none;">Experience</span>
+                                    </ul>
+                                </div>
+                                <div class="tab-content mt-3 bg-white" id="myTabContent">
+                                    <!-- محتوى التبويبات يبقى كما هو -->
+                                    <div class="tab-pane fade show active" id="Qualifications" role="tabpanel"
+                                        aria-labelledby="Qualifications-tab">
 
-                                        </button>
-                                    </li>
-                                    <li class="nav-item"  role="presentation">
-                                        <button class="nav-link" id="skills-tab" data-bs-toggle="tab"
-                                            data-bs-target="#skills" type="button" role="tab" aria-controls="skills"
-                                            aria-selected="false">
-                                            <i class="bi bi-code-square text-success"></i>
-                                            <span class="ar">المهارات</span>
-                                            <span class="en" style="display: none;">Skills</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="Abilities-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Abilities" type="button" role="tab"
-                                            aria-controls="Abilities" aria-selected="false">
-                                            <i class="bi bi-lightning-charge text-success"></i>
-                                            <span class="ar">القدرات</span>
-                                            <span class="en" style="display: none;">Abilities</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="Languages-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Languages" type="button" role="tab"
-                                            aria-controls="Languages" aria-selected="false">
-                                            <i class="bi bi-translate text-success"></i>
-                                            <span class="ar">اللغات</span>
-                                            <span class="en" style="display: none;">Languages</span>
-                                        </button>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="tab-content mt-3 bg-white" id="myTabContent">
-                                <!-- محتوى التبويبات يبقى كما هو -->
-                                <div class="tab-pane fade show active" id="Qualifications" role="tabpanel"
-                                    aria-labelledby="Qualifications-tab">
-
-                                    <!-- <h3><i class="bi bi-briefcase"></i> <span class="ar"> المؤهلات العلمية </span> <span
+                                        <!-- <h3><i class="bi bi-briefcase"></i> <span class="ar"> المؤهلات العلمية </span> <span
                                             class="en" style="display: none;">Qualifications </span></h3> -->
 
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <span class="ar">
-                                                الثانوية العامة </span>
-                                            <span class="en" style="display: none;">
-                                                General Secondary Education Diploma
-                                            </span>
-                                        <li class="list-group-item">
-                                            <span class="ar">بكالوريوس علوم حاسوب - جامعة حجة</span>
-                                            <span class="en" style="display: none;">Bachelor of Computer Science - Hajja
-                                                University</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="ar">دبلوم تصميم وبرمجة مواقع- المعهد العام للاتصالات
-                                                صنعاء</span>
-                                            <span class="en" style="display: none;">Diploma in Web Design and
-                                                Programming - General Telecommunications Institute, Sana'a</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="experience" role="tabpanel"
-                                    aria-labelledby="experience-tab">
-                                    <!-- <h3><i class="bi bi-briefcase"></i> <span class="ar">الخبرات العملية</span> <span
+                                        <ul class="list-group list-group-flush">
+
+                                            <li class="list-group-item">
+                                                <span class="ar">بكالوريوس علوم حاسوب - جامعة حجة</span>
+                                                <span class="en" style="display: none;">Bachelor of Computer Science -
+                                                    Hajja
+                                                    University</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="ar">دبلوم تصميم وبرمجة مواقع- المعهد العام للاتصالات
+                                                    صنعاء</span>
+                                                <span class="en" style="display: none;">Diploma in Web Design and
+                                                    Programming - General Telecommunications Institute, Sana'a</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="experience" role="tabpanel"
+                                        aria-labelledby="experience-tab">
+                                        <!-- <h3><i class="bi bi-briefcase"></i> <span class="ar">الخبرات العملية</span> <span
                                             class="en" style="display: none;">Professional Experiences</span></h3> -->
-                                    <ul class="list-group list-group-flush Exps">
-                                        <li class="list-group-item">
-                                            <i class="fas fa-laptop-code"></i>
-                                            <span class="ar">تصميم مواقع الويب بكل تصميم متجاوب مع كل الشاشات</span>
-                                            <span class="en" style="display: none;">Designing responsive websites for
-                                                all screen sizes</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-code"></i>
-                                            <span class="ar">برمجة مواقع الويب بكل احترافية</span>
-                                            <span class="en" style="display: none;">Professional web development</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-object-group"></i>
-                                            <span class="ar">تحويل تصميم من <span style="color:red">Figma</span> الى
-                                                موقع ويب متجاوب مع كل الشاشات بكل احترافية</span>
-                                            <span class="en" style="display: none;">Convert a design from <span
-                                                    style="color:red">Figma</span> into a website that is responsive to
-                                                all screens with all professionalism</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-database"></i>
-                                            <span class="ar">العمل في الصندوق الاجتماعي للتنمية على كافة جوانب نظام
-                                                (IMS) في ادخال ومراجعة البيانات</span>
-                                            <span class="en" style="display: none;">Working at the Social Fund for
-                                                Development on all aspects of the IMS system in data entry and
-                                                review</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-                                    <!-- <h3><i class="bi bi-code-square"></i><span class="ar">المهارات </span> <span
+                                        <ul class="list-group list-group-flush Exps">
+                                            <li class="list-group-item">
+                                                <i class="fas fa-laptop-code"></i>
+                                                <span class="ar">تصميم مواقع الويب بكل تصميم متجاوب مع كل الشاشات</span>
+                                                <span class="en" style="display: none;">Designing responsive websites
+                                                    for
+                                                    all screen sizes</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-code"></i>
+                                                <span class="ar">برمجة مواقع الويب بكل احترافية</span>
+                                                <span class="en" style="display: none;">Professional web
+                                                    development</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-object-group"></i>
+                                                <span class="ar">تحويل تصميم من <span style="color:red">Figma</span> الى
+                                                    موقع ويب متجاوب مع كل الشاشات بكل احترافية</span>
+                                                <span class="en" style="display: none;">Convert a design from <span
+                                                        style="color:red">Figma</span> into a website that is responsive
+                                                    to
+                                                    all screens with all professionalism</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-database"></i>
+                                                <span class="ar">العمل في الصندوق الاجتماعي للتنمية على كافة جوانب نظام
+                                                    (IMS) في ادخال ومراجعة البيانات</span>
+                                                <span class="en" style="display: none;">Working at the Social Fund for
+                                                    Development on all aspects of the IMS system in data entry and
+                                                    review</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+                                        <!-- <h3><i class="bi bi-code-square"></i><span class="ar">المهارات </span> <span
                                             class="en" style="display: none;">Skills </span></h3> -->
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fab fa-html5" aria-hidden="true"></i> HTML5
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 100%;"
-                                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fab fa-html5" aria-hidden="true"></i> HTML5
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                                                            aria-valuemax="100">100%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 90%;"
-                                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 90%;"
+                                                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fab fa-js" aria-hidden="true"></i> JavaScript
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 75%;"
-                                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fab fa-js" aria-hidden="true"></i> JavaScript
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 75%;"
+                                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 95%;"
-                                                        aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 95%;"
+                                                            aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fab fa-php" aria-hidden="true"></i> PHP
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 85%;"
-                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fab fa-php" aria-hidden="true"></i> PHP
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 85%;"
+                                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">
-                                                    <i class="fas fa-database" aria-hidden="true"></i> MySQL/SQL
-                                                </label>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 80%;"
-                                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%
+                                                <div class="mb-3">
+                                                    <label class="form-label">
+                                                        <i class="fas fa-database" aria-hidden="true"></i> MySQL/SQL
+                                                    </label>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 80%;"
+                                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="Abilities" role="tabpanel"
+                                        aria-labelledby="Abilities-tab">
+
+
+                                        <ul class="list-group list-group-flush Abilities">
+                                            <li class="list-group-item">
+                                                <i class="fas fa-laptop-code"></i>
+                                                <span class="ar">القدرة على استخدام الحاسوب بكل طلاقة وبرامج
+                                                    الأوفيس</span>
+                                                <span class="en" style="display: none;">Proficient in using computers
+                                                    and
+                                                    Microsoft Office programs</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-hard-hat"></i>
+                                                <span class="ar">القدرة على العمل تحت كافة الظروف</span>
+                                                <span class="en" style="display: none;">Ability to work under all
+                                                    conditions</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-users"></i>
+                                                <span class="ar">العمل بفاعلية ضمن فريق أو بشكل فردي</span>
+                                                <span class="en" style="display: none;">Effective teamwork and
+                                                    individual
+                                                    work skills</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-calendar-check"></i>
+                                                <span class="ar">الالتزام بالدوام والانضباط</span>
+                                                <span class="en" style="display: none;">Commitment to attendance and
+                                                    discipline</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-share-alt"></i>
+                                                <span class="ar">التعامل مع كافة مواقع التواصل الاجتماعي باحتراف</span>
+                                                <span class="en" style="display: none;">Professional handling of all
+                                                    social
+                                                    media platforms</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-tasks"></i>
+                                                <span class="ar">الالتزام والدقة وتسليم المهام المكلف بها حسب
+                                                    الموعد</span>
+                                                <span class="en" style="display: none;">Commitment, accuracy, and timely
+                                                    task delivery</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-brain"></i>
+                                                <span class="ar">مهارات تحليل وحل المشاكل</span>
+                                                <span class="en" style="display: none;">Problem-solving and analytical
+                                                    skills</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-comments"></i>
+                                                <span class="ar">مهارات تواصل قوية</span>
+                                                <span class="en" style="display: none;">Strong communication
+                                                    skills</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="fas fa-lightbulb"></i>
+                                                <span class="ar">القدرة على تعلم التقنيات الجديدة بسرعة وفعالية</span>
+                                                <span class="en" style="display: none;">Ability to learn new
+                                                    technologies
+                                                    quickly and effectively</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="Languages" role="tabpanel"
+                                        aria-labelledby="Languages-tab">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <i class="bi bi-chat-dots text-info"></i>
+                                                <span class="ar">اللغة العربية: اللغة الأم</span>
+                                                <span class="en" style="display: none;">Arabic: Native</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <i class="bi bi-chat-dots text-info"></i>
+                                                <span class="ar">اللغة الإنجليزية: جيد جداً</span>
+                                                <span class="en" style="display: none;">English: Very Good</span>
+                                            </li>
+                                        </ul>
                                     </div>
 
                                 </div>
-                                <div class="tab-pane fade" id="Abilities" role="tabpanel"
-                                    aria-labelledby="Abilities-tab">
-
-
-                                    <ul class="list-group list-group-flush Abilities">
-                                        <li class="list-group-item">
-                                            <i class="fas fa-laptop-code"></i>
-                                            <span class="ar">القدرة على استخدام الحاسوب بكل طلاقة وبرامج الأوفيس</span>
-                                            <span class="en" style="display: none;">Proficient in using computers and
-                                                Microsoft Office programs</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-hard-hat"></i>
-                                            <span class="ar">القدرة على العمل تحت كافة الظروف</span>
-                                            <span class="en" style="display: none;">Ability to work under all
-                                                conditions</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-users"></i>
-                                            <span class="ar">العمل بفاعلية ضمن فريق أو بشكل فردي</span>
-                                            <span class="en" style="display: none;">Effective teamwork and individual
-                                                work skills</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-calendar-check"></i>
-                                            <span class="ar">الالتزام بالدوام والانضباط</span>
-                                            <span class="en" style="display: none;">Commitment to attendance and
-                                                discipline</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-share-alt"></i>
-                                            <span class="ar">التعامل مع كافة مواقع التواصل الاجتماعي باحتراف</span>
-                                            <span class="en" style="display: none;">Professional handling of all social
-                                                media platforms</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-tasks"></i>
-                                            <span class="ar">الالتزام والدقة وتسليم المهام المكلف بها حسب الموعد</span>
-                                            <span class="en" style="display: none;">Commitment, accuracy, and timely
-                                                task delivery</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-brain"></i>
-                                            <span class="ar">مهارات تحليل وحل المشاكل</span>
-                                            <span class="en" style="display: none;">Problem-solving and analytical
-                                                skills</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-comments"></i>
-                                            <span class="ar">مهارات تواصل قوية</span>
-                                            <span class="en" style="display: none;">Strong communication skills</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="fas fa-lightbulb"></i>
-                                            <span class="ar">القدرة على تعلم التقنيات الجديدة بسرعة وفعالية</span>
-                                            <span class="en" style="display: none;">Ability to learn new technologies
-                                                quickly and effectively</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="Languages" role="tabpanel"
-                                    aria-labelledby="Languages-tab">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <i class="bi bi-chat-dots text-info"></i>
-                                            <span class="ar">اللغة العربية: اللغة الأم</span>
-                                            <span class="en" style="display: none;">Arabic: Native</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <i class="bi bi-chat-dots text-info"></i>
-                                            <span class="ar">اللغة الإنجليزية: جيد جداً</span>
-                                            <span class="en" style="display: none;">English: Very Good</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Projects Section -->
-
-        <div id="projects" class="container rounded" style=" padding: 30px; box-shadow: #9ee6fc 2px 2px 2px 5px;">
-            <h3 class="projects-title text-center mb-4 animate__animated animate__fadeInDown">
-                <i class="bi bi-folder2"></i>
-                <span class="ar"> من اعمالي </span>
-                <span class="en" style="display: none;">My Web Projects</span>
-            </h3>
-            <hr>
-            <p style="display: flex; flex-direction: column; text-align: justify; line-height: 1.5; color:white ; text-align: center;">
-                <span class="ar">
-                    لقد قمت بتنفيذ العديد من الأعمال في مجال تصميم وبرمجة المواقع الإلكترونية، وفيما يلي بعض منها                </span>
-                <span class="en" style="display: none;">
-                  I  have carried out many works in the field of website design and programming, and the following are some of them                 </span>
-                
-            </p>
-            <div class="row">
-                <div class="col-12 mb-4">
-                    <div class="card project-card animate__animated animate__fadeInUp">
-                        <div class="row g-0">
-                            <div class="col-md-6">
-                                <div id="carouselProject1" class="carousel slide h-100" data-bs-ride="carousel">
-                                    <div class="carousel-inner h-100">
-                                        <div class="carousel-item active h-100">
-                                            <img src="backend/header.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item  h-100">
-                                            <img src="backend/service.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item  h-100">
-                                            <img src="backend/search.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item  h-100">
-                                            <img src="backend/contact.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item  h-100">
-                                            <img src="backend/products.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item  h-100">
-                                            <img src="backend/projects.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                        <div class="carousel-item h-100">
-                                            <img src="backend/footer.png" class="d-block project-image"
-                                                alt="صورة المشروع 1 - 1">
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselProject1" data-bs-slide="prev">
-                                        <i class="fa-solid fa-circle-chevron-left"
-                                            style="color:#0ee43c; font-size:30px;"></i>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselProject1" data-bs-slide="next">
-                                        <i class="fa-solid fa-circle-chevron-right"
-                                            style="color:#0ee43c; font-size:30px;"></i>
-                                    </button>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-4">
-                                        <span class="ar"> تصميم وبرمجة موقع -مؤسسة رواد الاعمال للمقاولات </span>
-                                        <span class="en" style="display: none;">Website design and
-                                            programming-Entrepreneurs Contracting Est</span>
-
-
-
-                                    </h5>
-                                    <div class="scrollable-tabs">
-                                        <ul class="nav nav-tabs flex-nowrap" id="project-1-Tabs" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" id="description-tab"
-                                                    data-bs-toggle="tab" data-bs-target="#description" type="button"
-                                                    role="tab" aria-controls="description" aria-selected="true">
-                                                    <i class="fas fa-info-circle tab-icon"></i>
-                                                    <span class="ar">وصف المشروع</span>
-                                                    <span class="en" style="display: none;">Project Description</span> 
-                                                </button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="technologiestab" data-bs-toggle="tab"
-                                                    data-bs-target="#technologies" type="button" role="tab"
-                                                    aria-controls="technologies" aria-selected="false">
-                                                    <i class="fas fa-code tab-icon"></i> 
-                                                    <span class="ar">التقنيات المستخدمة</span>
-                                                    <span class="en" style="display: none;">Technologies Used</span>
-                                                </button>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="tab-content mt-3" id="project-1-TabsContent">
-                                        <div class="tab-pane fade show active" id="description" role="tabpanel"
-                                            aria-labelledby="description-tab">
-                                            <p style="display: flex; flex-direction: column; text-align: justify; line-height: 1.5;">
-                                                <span class="ar">
-                                                    موقع "مؤسسة رواد الاعمال للمقاولات" متخصص في توريد وتركيب بيوت الشعر الملكي، السواتر، المظلات بجميع أنواعها، والبرجولات اللكسان. يهدف الموقع إلى عرض خدمات المؤسسة بشكل شامل وسهل الاستخدام، مع التركيز على الجودة والابتكار في تقديم الحلول المثالية لاحتياجات العملاء في مجال المقاولات والتركيبات. يمكن للمستخدم البحث عن المشاريع السابقة المنفذة من قبل المؤسسة والطلب عبر الواتساب للتواصل مع المؤسسة مباشرة. طريقة عرض للخدمات المقدمة من المؤسسة لمزيد من التفاصيل يمكنكم زيارة الموقع.
-                                                </span>
-                                                <span class="en" style="display: none;">
-                                                    The "Entrepreneurial Contracting Establishment" website specializes in supplying and installing royal awnings, screens, awnings of all kinds, and floor coverings. The website aims to display the organization's services in a comprehensive and easy-to-use manner, with a focus on quality and innovation in providing ideal solutions to customers' needs in the field of contracting and installations. The user can search for previous projects implemented by the organization and request via WhatsApp to communicate with the organization directly. A view of the services provided by the organization. For more details, you can visit the website.
-                                                </span>
-                                                <a href="https://entrepreneurscontracting.com/" class="btn btn-primary mt-1">
-                                                    <i class="fa-solid fa-globe"></i>
-                                                    <span class="ar">زيارة الموقع</span>
-                                                    <span class="en" style="display: none;">Visit the Website</span>
-                                                </a>
-                                            </p>
-                                            
-                                        </div>
-                                        <div class="tab-pane fade" id="technologies" role="tabpanel"
-                                            aria-labelledby="technologies-tab">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fab fa-html5 me-2"></i>HTML5</li>
-                                                <li><i class="fab fa-css3-alt me-2"></i>CSS3</li>
-                                                <li><i class="fab fa-js-square me-2"></i>JavaScript&jQuery</li>
-                                                <li><i class="fab fa-bootstrap me-2"></i>Bootstrap</li>
-                                                <li><i class="fab fa-font-awesome me-2"></i>Font Awesome</li>
-                                                <li><i class="fab fa-php me-2"></i>PHP</li>
-                                                <li><i class="fas fa-database me-2 "></i>MySQL</li>
-
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Projects Section -->
+<div class="divider">
+  <span class="line"></span>
+  <span class="dot"></span>
+  <span class="line"></span>
+</div>
+<div class="icon-divider">
+  <span class="divider-line"></span>
+  <i class="fa fa-star"></i>
+  <span class="divider-line"></span>
+</div>
+            <section id="projects" class="">
+                <div class="container">
+                    <div class="projects-header text-center mb-5 position-relative">
+                        <h2 class="display-5 fw-bold position-relative d-inline-block">
+                            <i class="bi bi-folder2-open me-2"></i>
+                            <span class="ar">معرض أعمالي</span>
+                            <span class="en" style="display: none;">My Portfolio</span>
+                            <div class="heading-underline"></div>
+                        </h2>
+                        <p class="text-center lead mt-3 mb-0 text-muted">
+                            <span class="ar">نماذج مختارة من مشاريع تصميم وتطوير المواقع الإلكترونية</span>
+                            <span class="en" style="display: none;">Selected web design & development projects</span>
+                        </p>
                     </div>
-                </div>
-                <!-- الصف الثاني  -->
-                <div class="col-12 mb-4">
-                    <div class="card project-card animate__animated animate__fadeInUp">
-                        <div class="row g-0">
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    <h5 class="card-title mb-4">
-                                        <span class="ar"> تصميم موقع – معهد أبادنت للتدريب </span>
-                                        <span class="en" style="display: none;">Website design - Abadnet Institute for
-                                            Training</span>
-
-
-
-                                    </h5>
-                                    <div class="scrollable-tabs">
-                                        <ul class="nav nav-tabs flex-nowrap" id="project-2-Tabs" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" id="description-2-tab" data-bs-toggle="tab" data-bs-target="#description2" type="button" role="tab" aria-controls="description" aria-selected="true">
-                                                    <i class="fas fa-info-circle tab-icon"></i>
-                                                    <span class="ar">وصف المشروع</span>
-                                                    <span class="en" style="display: none;">Project Description</span>
-                                                </button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="technologies-2-tab" data-bs-toggle="tab" data-bs-target="#technologies2" type="button" role="tab" aria-controls="technologies" aria-selected="false">
-                                                    <i class="fas fa-code tab-icon"></i>
-                                                    <span class="ar">التقنيات المستخدمة</span>
-                                                    <span class="en" style="display: none;">Technologies Used</span>
-                                                </button>
-                                            </li>
-                                            
-
-                                        </ul>
-                                    </div>
-                                    <div class="tab-content mt-3" id="project-2-TabsContent">
-                                        <!-- محتوى التبويبات يبقى كما هو -->
-                                        <div class="tab-pane fade show active" id="description2" role="tabpanel"
-                                            aria-labelledby="description-2-tab">
-                                            <p  style=" display: flex;flex-direction: column;text-align: justify;line-height: 1.5;">
-                                                <span class="ar"> لقد قمت بتحويل تصميمات صفحات الويب المقدمة من Figma
-                                                    إلى صفحات ويب احترافية. تضمنت هذه العملية الاهتمام بالتفاصيل الدقيقة
-                                                    للتصميم الأصلي لضمان تجربة مستخدم سلسة ومتكاملة. كان التركيز على
-                                                    إنشاء صفحات ويب سريعة الاستجابة وقابلة للتكيف مع مختلف الأجهزة
-                                                    والمتصفحات، مع ضمان الأداء الممتاز والتصميم الجمالي المتسق. باستخدام
-                                                    التقنيات الموجودة في علامة التبويب "التقنيات"، تم تبسيط وتسهيل عملية
-                                                    التطوير لتحقيق أقصى قدر من الكفاءة في تصميم صفحات الويب الحديثة
-                                                    والعملية. </span>
-                                                <span class="en" style="display: none;"> I converted web page designs
-                                                    provided by Figma into professional web pages. This process involved
-                                                    paying attention to the fine details of the original design to
-                                                    ensure a seamless and integrated user experience. The focus was on
-                                                    creating responsive web pages that are adaptable to various devices
-                                                    and browsers, while ensuring excellent performance and a consistent
-                                                    design aesthetic. Using the techniques found in the Technologies
-                                                    tab, the development process has been simplified and facilitated to
-                                                    achieve maximum efficiency in designing modern and practical web pages.
-                                                </span>
-
-                                            </p>
-
-                                        </div>
-                                        <div class="tab-pane fade" id="technologies2" role="tabpanel"
-                                            aria-labelledby="technologies-2-tab">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fab fa-html5 me-2"></i>HTML5</li>
-                                                <li><i class="fab fa-css3-alt me-2"></i>CSS3</li>
-                                                <li><i class="fab fa-js-square me-2"></i>JavaScript&jQuery</li>
-                                                <li><i class="fab fa-bootstrap me-2"></i>Bootstrap</li>
-                                                <li><i class="fab fa-font-awesome me-2"></i>Font Awesome</li>
-                                               
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div id="carouselProject2" class="carousel slide h-100" data-bs-ride="carousel">
-                                    <div class="carousel-inner h-100">
-                                        <div class="carousel-item active h-100">
-                                            <img src="frontend/header.png" class="d-block project-image"
-                                                alt="صورة المشروع 2 - 1">
-                                        </div>
-                                        <div class="carousel-item h-100">
-                                            <img src="frontend/section2.png" class="d-block project-image"
-                                                alt="صورة المشروع 2 - 2">
-                                        </div>
-                                        <div class="carousel-item h-100">
-                                            <img src="frontend/section3.png" class="d-block project-image"
-                                                alt="صورة المشروع 2 - 3">
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselProject2" data-bs-slide="prev">
-                                        <i class="fa-solid fa-circle-chevron-left"
-                                            style="color:#0ee43c; font-size:30px;"></i>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselProject2" data-bs-slide="next">
-                                        <i class="fa-solid fa-circle-chevron-right"
-                                            style="color:#0ee43c; font-size:30px;"></i>
-                                    </button>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- يمكنك تكرار هذا القسم للمشروع الثاني مع تغيير المحتوى والصور -->
-
-            </div>
-            <!-- الصف الاول  -->
-
-        </div>
-
-
-
+<div class="projects-filter mb-4 text-center">
+    <div class="btn-group filter-buttons" role="group" style="direction: ltr">
        
-        <div class="float-buttons">
-            <a href="#" class="float-button float-button-main" id="mainButton" aria-label="Main floating button">
-                <i class="fas fa-plus text-white" id="mainButtonIcon"></i>
-            </a>
-            <a href="tel:+96781010064" class="float-button float-button-phone" aria-label="Phone">
-                <i class="fas fa-phone text-white"></i>
-            </a>
-            <a href="https://wa.me/737770748" class="float-button float-button-whatsapp" target="_blank"
-                aria-label="WhatsApp">
-                <i class="fab fa-whatsapp text-white"></i>
-            </a>
-            <a href="#" class="float-button float-button-top" id="topButton" aria-label="Scroll to top">
-                <i class="fas fa-arrow-up text-white"></i>
-            </a>
-        </div>
+        <button type="button" class="btn btn-outline-primary d-flex align-items-center justify-content-center" data-filter="ecommerce" dir="rtl">
+            <span class="ar">متاجر إلكترونية</span>
+            <i class="fas fa-shopping-cart ms-2"></i>
+            <span class="en" style="display: none;">E-commerce</span>
+        </button>
+        <button type="button" class="btn btn-outline-primary d-flex align-items-center justify-content-center" data-filter="corporate" dir="rtl">
+            <span class="ar">مواقع شركات</span>
+            <i class="fas fa-building ms-2"></i>
+            <span class="en" style="display: none;">Corporate</span>
+        </button>
+         <button type="button" class="btn btn-outline-primary active d-flex align-items-center justify-content-center" data-filter="all" dir="rtl">
+            <span class="ar">الكل</span>
+            <i class="fas fa-th-large ms-2"></i> <!-- استخدم ms-2 بدل me-2 -->
+            <span class="en" style="display: none;">All</span>
+        </button>
+    </div>
+</div>
+
+
+                    <div class="row g-4 project-cards">
+                        <!-- مشروع 1 -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="corporate">
+                            <div class="project-card h-100">
+                                <div class="project-card-inner">
+                                    <div class="project-image">
+                                        <div
+                                            class="project-preview bg-gradient-primary d-flex align-items-center justify-content-center">
+                                            <span class="project-logo"><img src="images/load.jpeg" alt="">
+                                                
+                                            </span>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-tech-stack">
+                                                <span class="tech-badge"><i class="fab fa-html5"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-css3-alt"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-js-square"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-bootstrap"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-php"></i></span>
+                                                <span class="tech-badge"><i class="fas fa-database"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-year">
+                                            <span class="badge bg-primary rounded-pill">2024</span>
+                                        </div>
+                                        <h5 class="project-title">
+                                            <span class="ar"> فولتا ماكس للتجارة والخدمات الهندسية
+</span>
+                                            <span class="en" style="display:none;">VoltaMax Trading & Engineering Services
+</span>
+                                        </h5>
+                                        <p class="project-description">
+                                            <span class="ar">موقع تعريفي شامل مع نظام إدارة محتوى متكامل ولوحة تحكم
+                                                متطورة. تم بناؤه وفق أحدث معايير تطوير الويب لضمان سرعة التحميل وتجربة
+                                                مستخدم مميزة. بالاضافة الى قاعدة بيانات 
+                                            </span>
+                                            <span class="en" style="display:none;">Comprehensive website with integrated
+                                                CMS and advanced control panel. Built according to modern web
+                                                development standards to ensure fast loading and exceptional user
+                                                experience.</span>
+                                        </p>
+                                        <div class="project-actions">
+                                            <a href="https://volta-max.com/" class="btn btn-primary btn-sm w-100" target="_blank">
+                                                <i class="bi bi-eye me-1"></i>
+                                                <span class="ar">زيارة الموقع</span>
+                                                <span class="en" style="display:none;">Visit Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مشروع 2 -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="ecommerce">
+                            <div class="project-card h-100">
+                                <div class="project-card-inner">
+                                    <div class="project-image">
+                                        <div
+                                            class="project-preview bg-gradient-success d-flex align-items-center justify-content-center">
+                                            <span class="project-logo"><img src="images/logoth3.jpg" alt=""></span>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-tech-stack">
+                                                <span class="tech-badge"><i class="fab fa-html5"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-css3-alt"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-js-square"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-bootstrap"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-php"></i></span>
+                                                <span class="tech-badge"><i class="fas fa-database"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-year">
+                                            <span class="badge bg-success rounded-pill">2024</span>
+                                        </div>
+                                        <h5 class="project-title">
+                                            <span class="ar">متجر عبدالرحيم الثور للجنابي</span>
+                                            <span class="en" style="display:none;">Abdulrahim Al-Thawr Store</span>
+                                        </h5>
+                                        <p class="project-description">
+                                            <span class="ar">منصة تسوق إلكتروني متكاملة مع نظام إدارة مخزون وسلة مشتريات
+                                                وبوابة دفع آمنة. واجهة مستخدم سهلة الاستخدام تعمل على جميع
+                                                الأجهزة.</span>
+                                            <span class="en" style="display:none;">Integrated e-commerce platform with
+                                                inventory management system, shopping cart, and secure payment gateway.
+                                                User-friendly interface that works on all devices.</span>
+                                        </p>
+                                        <div class="project-actions">
+                                            <a href="https://www.janbiayemeni.com/" class="btn btn-success btn-sm w-100" target="_blank">
+                                                <i class="bi bi-eye me-1"></i>
+                                                <span class="ar">زيارة الموقع</span>
+                                                <span class="en" style="display:none;">Visit Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مشروع 3 -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="ecommerce">
+                            <div class="project-card h-100">
+                                <div class="project-card-inner">
+                                    <div class="project-image">
+                                        <div
+                                            class="project-preview bg-gradient-info d-flex align-items-center justify-content-center">
+                                            <span class="project-logo">
+                                                <img src="images/جديد.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-tech-stack">
+                                                <span class="tech-badge"><i class="fab fa-html5"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-css3-alt"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-js-square"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-bootstrap"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-php"></i></span>
+                                                <span class="tech-badge"><i class="fas fa-database"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-year">
+                                            <span class="badge bg-info rounded-pill">2024</span>
+                                        </div>
+                                        <h5 class="project-title">
+                                            <span class="ar">بن مانع للإلكترونيات</span>
+                                            <span class="en" style="display:none;">Bin Mani Electronics</span>
+                                        </h5>
+                                        <p class="project-description">
+                                            <span class="ar">متجر إلكتروني متخصص في بيع الأجهزة الإلكترونية مع نظام بحث
+                                                متقدم وتصفية للمنتجات. تجربة تسوق سلسة مع خيارات دفع متعددة.</span>
+                                            <span class="en" style="display:none;">Specialized e-commerce store for
+                                                electronic devices with advanced search and product filtering system.
+                                                Smooth shopping experience with multiple payment options.</span>
+                                        </p>
+                                        <div class="project-actions">
+                                            <a href="https://www.bnmelectronics.com/" class="btn btn-info btn-sm w-100" target="_blank">
+                                                <i class="bi bi-eye me-1"></i>
+                                                <span class="ar">زيارة الموقع</span>
+                                                <span class="en" style="display:none;">Visit Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<div class="icon-divider">
+  <span class="divider-line"></span>
+  <i class="fa fa-star"></i>
+  <span class="divider-line"></span>
+</div>
+                        <!-- مشروع 4 -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="corporate">
+                            <div class="project-card h-100">
+                                <div class="project-card-inner">
+                                    <div class="project-image">
+                                        <div
+                                            class="project-preview bg-gradient-warning d-flex align-items-center justify-content-center">
+                                            <span class="project-logo"><img src="images/backlog.jpeg" alt=""></span>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-tech-stack">
+                                                <span class="tech-badge"><i class="fab fa-html5"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-css3-alt"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-js-square"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-bootstrap"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-php"></i></span>
+                                                <span class="tech-badge"><i class="fas fa-database"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-year">
+                                            <span class="badge bg-warning rounded-pill">2025</span>
+                                        </div>
+                                        <h5 class="project-title">
+                                            <span class="ar">شركة ماين تراست للصرافة والتحويلات المالية</span>
+                                            <span class="en" style="display:none;">Main Trust Exchange Co.</span>
+                                        </h5>
+                                        <p class="project-description">
+                                            <span class="ar">موقع خدمات مالية مع نظام حساب أسعار العملات المباشر وخدمة
+                                                تحويل الأموال عبر الإنترنت. تم تطبيق أعلى معايير الأمان لحماية بيانات
+                                                العملاء.</span>
+                                            <span class="en" style="display:none;">Financial services website with live
+                                                currency rate calculator and online money transfer service. Implemented
+                                                highest security standards to protect customer data.</span>
+                                        </p>
+                                        <div class="project-actions">
+                                            <a href="#" class="btn btn-warning btn-sm w-100" target="_blank">
+                                                <i class="bi bi-eye me-1"></i>
+                                                <span class="ar">زيارة الموقع</span>
+                                                <span class="en" style="display:none;">Visit Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مشروع 5 -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="corporate">
+                            <div class="project-card h-100">
+                                <div class="project-card-inner">
+                                    <div class="project-image">
+                                        <div
+                                            class="project-preview bg-gradient-danger d-flex align-items-center justify-content-center">
+                                            <span class="project-logo"><img src="images/log.jpg" alt=""></span>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-tech-stack">
+                                                <span class="tech-badge"><i class="fab fa-html5"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-css3-alt"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-js-square"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-bootstrap"></i></span>
+                                                <span class="tech-badge"><i class="fab fa-php"></i></span>
+                                                <span class="tech-badge"><i class="fas fa-database"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-year">
+                                            <span class="badge bg-danger rounded-pill">2025</span>
+                                        </div>
+                                        <h5 class="project-title">
+                                            <span class="ar">الاختيار للسفريات والسياحة</span>
+                                            <span class="en" style="display:none;">Al-ekhtiar Travel & Tourism</span>
+                                        </h5>
+                                        <p class="project-description">
+                                            <span class="ar">منصة حجز الرحلات والفنادق مع نظام بحث ذكي وعرض العروض
+                                                الخاصة. تجربة مستخدم سلسة مع واجهة تفاعلية جذابة وسرعة استجابة
+                                                عالية.</span>
+                                            <span class="en" style="display:none;">Flight and hotel booking platform
+                                                with smart search system and special offers display. Smooth user
+                                                experience with attractive interactive interface and high
+                                                responsiveness.</span>
+                                        </p>
+                                        <div class="project-actions">
+                                            <a href="https://al-ekhtiar.com/" class="btn btn-danger btn-sm w-100" target="_blank">
+                                                <i class="bi bi-eye me-1"></i>
+                                                <span class="ar">زيارة الموقع</span>
+                                                <span class="en" style="display:none;">Visit Website</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مشروع إضافي -->
+                        <div class="col-md-6 col-lg-4 project-item" data-category="ecommerce">
+                            <div class="project-card h-100 more-projects">
+                                <div
+                                    class="project-card-inner d-flex align-items-center justify-content-center text-center p-4">
+                                    <div>
+                                        <div class="more-projects-icon mb-3">
+                                            <i class="bi bi-plus-circle-fill"></i>
+                                        </div>
+                                        <h5 class="more-projects-title mb-3">
+                                            <span class="ar">المزيد من المشاريع</span>
+                                            <span class="en" style="display:none;">More Projects</span>
+                                        </h5>
+                                        <p class="more-projects-text mb-4">
+                                            <span class="ar">لدي العديد من المشاريع الأخرى. هل ترغب في الاطلاع على
+                                                المزيد؟</span>
+                                            <span class="en" style="display:none;">I have many other projects. Would you
+                                                like to see more?</span>
+                                        </p>
+                                        <a href="#contact" class="btn btn-outline-primary">
+                                            <span class="ar">تواصل معي</span>
+                                            <span class="en" style="display:none;">Contact Me</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="float-buttons">
+                    <a href="#" class="float-button float-button-main" id="mainButton"
+                        aria-label="Main floating button">
+                        <i class="fas fa-plus text-white" id="mainButtonIcon"></i>
+                    </a>
+                    <a href="tel:+96781010064" class="float-button float-button-phone" aria-label="Phone">
+                        <i class="fas fa-phone text-white"></i>
+                    </a>
+                    <a href="https://wa.me/774985705" class="float-button float-button-whatsapp" target="_blank"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-white"></i>
+                    </a>
+                    <a href="#" class="float-button float-button-top" id="topButton" aria-label="Scroll to top">
+                        <i class="fas fa-arrow-up text-white"></i>
+                    </a>
+                </div>
     </main>
     <footer class="text-center text-white py-2 mt-5">
         <div class="container">
@@ -1275,130 +950,11 @@
             </div>
         </div>
     </footer>
+        <script src="index.js" defer></script>
 
-    <script>
-
-        // تغيير شفافية شريط التنقل عند التمرير
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('transparent');
-            } else {
-                navbar.classList.remove('transparent');
-            }
-        });
-
-        // تبديل اللغة بين العربية والإنجليزية
-        function toggleLanguage() {
-            const arElements = document.getElementsByClassName('ar');
-            const enElements = document.getElementsByClassName('en');
-            for (let el of arElements) {
-                el.style.display = el.style.display === 'none' ? '' : 'none';
-            }
-            for (let el of enElements) {
-                el.style.display = el.style.display === 'none' ? '' : 'none';
-            }
-            document.documentElement.lang = document.documentElement.lang === 'ar' ? 'en' : 'ar';
-            document.documentElement.dir = document.documentElement.lang === 'ar' ? 'rtl' : 'ltr';
-        }
-
-        // إظهار زر العودة إلى الأعلى عند التمرير
-        window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("topButton").style.display = "block";
-            } else {
-                document.getElementById("topButton").style.display = "none";
-            }
-        };
-
-        // وظيفة زر العودة إلى الأعلى
-        document.getElementById("topButton").onclick = function () {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        };
-
-        // التحكم في أزرار التعويم
-        document.getElementById("mainButton").onclick = function (e) {
-            e.preventDefault();
-            const floatButtons = document.querySelector('.float-buttons');
-            const mainButtonIcon = document.getElementById('mainButtonIcon');
-            floatButtons.classList.toggle('active');
-
-            // تغيير الأيقونة بين + و -
-            if (floatButtons.classList.contains('active')) {
-                mainButtonIcon.classList.remove('fa-plus');
-                mainButtonIcon.classList.add('fa-xmark');
-            } else {
-                mainButtonIcon.classList.remove('fa-xmark');
-                mainButtonIcon.classList.add('fa-plus');
-            }
-        };
-
-        // إعداد الصفحة عند التحميل
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const mainButton = document.getElementById('mainButton');
-            const otherButtons = document.querySelectorAll('.float-button:not(#mainButton)');
-            const topButton = document.getElementById('topButton');
-
-            mainButton.addEventListener('click', () => {
-                otherButtons.forEach(button => {
-                    button.style.display = button.style.display === 'flex' ? 'none' : 'flex';
-                });
-            });
-
-            topButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    topButton.style.display = 'flex';
-                } else {
-                    topButton.style.display = 'none';
-                }
-            });
-        });
-
-        /* إضافة تأثيرات حركية عند التمرير */
-        function isElementInViewport(el) {
-            var rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function handleScrollAnimation() {
-            var cards = document.querySelectorAll('.project-card');
-            cards.forEach(function (card) {
-                if (isElementInViewport(card)) {
-                    card.classList.add('animate__fadeInUp');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScrollAnimation);
-        window.addEventListener('load', handleScrollAnimation);
-
-        // فتح تبويب معين
-        function openTab(evt, tabName) {
-            var i, tabContent, tabLinks;
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].style.display = "none";
-            }
-            tabLinks = document.getElementsByClassName("tab");
-            for (i = 0; i < tabLinks.length; i++) {
-                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+    
 </body>
 
 </html>
-
