@@ -13,7 +13,17 @@
         h3 {
             color: #333;
         }
-
+.modern-hr {
+  border: none; /* إزالة الحدود الافتراضية */
+  height: 3px;  /* سمك الخط */
+  background: linear-gradient(
+    to right,
+    #272C6B,   /* أزرق داكن */
+    #f2f3f3,   /* أزرق مائي */
+    #001f4d    /* أزرق داكن */
+  );
+  border-radius: 2px; /* حواف ناعمة */
+}
         .card-text {
             display: flex;
             flex-direction: column;
@@ -29,126 +39,53 @@
         i {
             margin: 5px;
         }
-
-          /* شريط علوي */
-        .topbar {
-            transition: all 0.4s ease;
-            padding: 10px 0;
-            background: #272C6B;
-            color: #fff;
-        }
         
-        .topbar.scrolled {
-            background: #06B8A1;
+  /* تنسيقات عناصر القائمة */
+        .navbar {
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* روابط */
-        .navbar-custom .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            margin: 0 6px;
-            padding: 6px 14px;
-            border: 2px solid rgba(255,255,255,0.7);
-            border-radius: 25px;
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .nav-link.active {
-            background: #fff !important;
-            color: #0aabf5 !important;
-            border-color: #fff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        nav {
+            background-color: #183153;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: #0eb2e4 2px solid;
         }
 
-        /* نافبار */
-        .navbar-custom {
-            background: #272C6B;
-            border-bottom-left-radius: 1000px;
-            border-bottom-right-radius: 1000px;
-            transition: all 0.4s ease;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .navbar-custom.scrolled {
-            background: #06B8A1;
+        .navbar-nav {
+            padding-right: 0;
         }
 
-        .navbar-custom .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .navbar-custom .nav-link:hover {
-            color: #000 !important;
+        .navbar-nav .nav-link {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+            color: rgba(255, 255, 255, 255);
         }
 
-        /* أيقونات التواصل الاجتماعي وزر اللغة */
-        .social-icons a {
-            color: #fff;
-            margin-left: 10px;
-            font-size: 18px;
-            transition: 0.3s;
-            text-decoration: none; /* إزالة الخط السفلي */
+        .navbar-nav .nav-link:hover {
+            color: rgb(248, 246, 248);
+            font-size: 15px;
+            border-radius: 20px;
+            background-color: #183153;
         }
-        .social-icons a:hover {
-            color: #06B8A1;
+
+        .navbar.transparent {
+            background-color: rgba(185, 224, 231, 0.445);
         }
-        
-        /* زر تبديل اللغة كـ a */
-        .lang-switcher a {
-            color: #fff !important;
-            border: 2px solid rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 5px 15px; /* Adjust padding for better look */
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
+
+        .navbar.transparent .nav-link,
+        .navbar.transparent .navbar-brand {
+            color: black;
+        }
+
+        .nav-tabs {
+            flex-wrap: nowrap;
+        }
+
+        .nav-tabs .nav-item {
+            float: none;
             display: inline-block;
         }
-        
-        .lang-switcher a:hover {
-            background: #fff !important;
-            color: #0aabf5 !important;
-            border-color: #fff;
-            cursor: pointer; /* لإظهار المؤشر كيد */
-        }
-
-        /* تثبيت */
-        .fixed-topbars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-        }
-
-        /* أوفكانفس */
-        .offcanvas {
-            background: #272C6B !important;
-            width: 220px !important;
-            transition: all 0.4s ease-in-out;
-        }
-        .offcanvas .nav-link {
-            color: #fff !important;
-            font-size: 18px;
-        }
-        .offcanvas .nav-link:hover {
-            color: #06B8A1 !important;
-        }
-        .offcanvas .btn-close {
-            filter: invert(1);
-        }
-        .social-icons a {
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  transform: scale(1.2);
-  opacity: 0.8;
-}
 
 
         .tab-icon {
@@ -176,8 +113,6 @@
             float: none;
         }
 
-        
-
         /* تنسيقات الشارات */
         .badge-button {
             margin-bottom: 15px;
@@ -185,7 +120,7 @@
 
         /* تنسيقات البطاقات */
         .card-body {
-            padding: 25px;
+            padding: 20px;
         }
 
        
@@ -394,23 +329,60 @@
         display: inline-block;
         vertical-align: middle;
     }
-    .icon-divider {
+      .divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
+
+  position: relative;
+}
+
+.divider .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #3E66A0, #6BA8E5);
+  position: relative;
+  animation: growLine 1.2s ease;
+}
+
+.divider .dot {
+  width: 14px;
+  height: 14px;
+  background: #3E66A0;
+  border-radius: 50%;
+  margin: 0 15px;
+  box-shadow: 0 0 8px rgba(62, 102, 160, 0.6);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes growLine {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+.icon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .divider-line {
   flex-grow: 1;
   height: 2px;
-  background-color: #ddd;
+  background-color: #06c7e9;
 }
 
 .icon-divider i {
   font-size: 24px;
-  color: #333;
+  color: #790cdf;
   padding: 0 15px;
+}
+.card{
+    border: none;
 }
         /* Projects Section Styles */
         #projects {
@@ -611,3 +583,4 @@
 
 
    
+        
