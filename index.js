@@ -221,3 +221,35 @@
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // تشغيل التأثير عند تحميل الصفحة
         });
+         const scrollButton = document.querySelector('.scroll-to-top');
+    const progressCircle = document.querySelector('.progress');
+    
+    window.addEventListener('scroll', () => {
+        // حساب نسبة التمرير
+        const scrollPercent = (document.documentElement.scrollTop) / 
+            (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+        
+        // تحديث الدائرة التقدمية
+        const dashoffset = 283 - (scrollPercent * 283);
+        progressCircle.style.strokeDashoffset = dashoffset;
+        
+        // إظهار/إخفاء الزر
+        if (document.documentElement.scrollTop > 300) {
+            scrollButton.style.display = 'block';
+            // إضافة تأثير ظهور تدريجي
+            scrollButton.style.opacity = '1';
+        } else {
+            scrollButton.style.opacity = '0';
+            setTimeout(() => {
+                scrollButton.style.display = 'none';
+            }, 300);
+        }
+    });
+
+    // التمرير إلى الأعلى عند النقر
+    scrollButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
